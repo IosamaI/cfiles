@@ -1,0 +1,15 @@
+# Load the newly provided set of attached CSV files
+A_eleventh = pd.read_csv('/mnt/data/A(5).csv', header=None).values
+x_eleventh = pd.read_csv('/mnt/data/x(5).csv', header=None).values
+z_eleventh = pd.read_csv('/mnt/data/z(5).csv', header=None).values
+
+# Compute y = Ax for this set of data
+y_eleventh = np.dot(A_eleventh, x_eleventh)
+
+# Compute the squared errors between y_eleventh and z_eleventh
+squared_errors_yz_eleventh = (y_eleventh - z_eleventh) ** 2
+
+# Compute Mean Squared Error (MSE) between y_eleventh and z_eleventh
+mse_yz_eleventh = np.mean(squared_errors_yz_eleventh)
+
+mse_yz_eleventh
